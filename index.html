@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Кухня Хогвартса, 1925</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Philosopher:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#d4af6a;--parch:#ecdcb4;--ink:#2b1d12;--red:#7a1f26}
+*{box-sizing:border-box;user-select:none;-webkit-user-select:none;touch-action:none}
+html,body{margin:0;height:100%;background:transparent;overflow:hidden;font-family:'Cormorant Garamond',Georgia,serif}
+#stage{position:absolute;left:50%;top:50%;width:920px;height:590px;transform-origin:center center}
+#stage.scr{animation:shk .5s}
+@keyframes shk{20%{margin-left:-7px}40%{margin-left:7px}60%{margin-left:-5px}80%{margin-left:4px}}
+.abs{position:absolute}
+.panel{position:absolute;color:var(--parch);border:2px solid var(--gold);border-radius:14px;
+ background:repeating-linear-gradient(0deg,rgba(0,0,0,.28) 0 2px,transparent 2px 38px),repeating-linear-gradient(90deg,rgba(0,0,0,.2) 0 2px,transparent 2px 76px),radial-gradient(ellipse at 30% 0,#2f3868,#161a34 70%);
+ box-shadow:inset 0 0 28px rgba(0,0,0,.6),0 8px 22px rgba(0,0,0,.55)}
+.panel::before{content:'';position:absolute;inset:5px;border:1px solid rgba(212,175,106,.35);border-radius:9px;pointer-events:none}
+h3{margin:10px 0 8px;text-align:center;font:700 17px Philosopher,Georgia,serif;letter-spacing:.08em;color:var(--gold);text-shadow:0 1px 3px #000}
+#title{left:150px;top:-4px;width:620px;height:46px;text-align:center;font:700 25px/42px Philosopher,Georgia,serif;color:var(--gold);text-shadow:0 2px 6px #000;background:linear-gradient(90deg,transparent,rgba(20,22,44,.9) 15%,rgba(20,22,44,.9) 85%,transparent);border-bottom:2px solid var(--gold)}
+#title::after{content:'';position:absolute;left:12%;right:12%;bottom:-6px;height:3px;background:linear-gradient(90deg,#7a1f26 0 25%,#c9a227 25% 50%,#1f5a2e 50% 75%,#2a4a8a 75%)}
+.candle{position:absolute;top:-6px;font-size:26px;filter:drop-shadow(0 0 8px #ffb347);animation:fl 3s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(8px)}}
+.sp{position:absolute;color:#ffe9a8;font-size:13px;opacity:0;animation:tw 4s infinite;pointer-events:none;z-index:40}
+@keyframes tw{50%{opacity:.85;transform:translateY(-12px) scale(1.4)}}
+#shelf{display:grid;grid-template-columns:repeat(3,72px);gap:5px 6px;justify-content:center;background:repeating-linear-gradient(180deg,transparent 0 65px,#7a5230 65px 66px,#5a3a1f 66px 69px);margin:0 6px;padding:0 4px}
+.it{display:flex;flex-direction:column;align-items:center;justify-content:center;width:72px;height:64px;gap:1px;border-radius:8px;cursor:grab;transition:transform .15s,background .15s}
+.it:hover{background:rgba(212,175,106,.18);transform:translateY(-3px)}
+.it .e{width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:28px;pointer-events:none;filter:drop-shadow(0 2px 2px rgba(0,0,0,.6))}
+.e svg,.ghost svg,#bowlc svg{width:100%;height:100%}
+.it small{font-size:12px;font-weight:700;line-height:1;text-align:center;pointer-events:none;text-shadow:0 1px 2px #000}
+#tools{display:flex;gap:8px;padding:0 14px;align-items:center;height:100%}
+.tl{flex-direction:row;gap:8px;width:auto;min-width:122px;height:42px;padding:0 12px;background:rgba(236,220,180,.08);border:1px solid rgba(212,175,106,.5)}
+.tl .e{width:30px;height:30px}.tl small{font-size:15px}
+#table{background:radial-gradient(ellipse at 50% 30%,rgba(255,190,100,.22),transparent 65%),repeating-linear-gradient(90deg,#6b4526 0 78px,#3a2312 78px 81px);border-color:#b8934f}
+#bowl{position:absolute;left:100px;top:46px;width:200px;height:150px;cursor:grab}
+#bowl .body{position:absolute;left:0;top:30px;width:200px;height:110px;border-radius:0 0 100px 100px/0 0 110px 110px;background:repeating-linear-gradient(90deg,transparent 0 30px,rgba(122,31,38,.18) 30px 34px),radial-gradient(circle at 35% 25%,#f6edd6,#cdb98c 70%,#a08a5c);border:4px solid #8e7848;border-top:0;box-shadow:0 10px 12px rgba(0,0,0,.45)}
+#bowl .rim{position:absolute;left:-6px;top:22px;width:212px;height:16px;border-radius:8px;background:linear-gradient(#f5ebc9,#d8c795);border:3px solid #8e7848}
+#bowlc{position:absolute;left:14px;top:-6px;width:172px;height:62px;display:flex;flex-wrap:wrap;gap:0 2px;align-items:flex-end;justify-content:center;pointer-events:none}
+#bowlc>span{width:27px;height:27px;display:block;font-size:22px;text-align:center}
+#bowl.stir .body{animation:wob .7s}
+@keyframes wob{20%{transform:rotate(-5deg)}40%{transform:rotate(5deg)}60%{transform:rotate(-4deg)}80%{transform:rotate(3deg)}}
+.blob{width:124px;height:58px;border-radius:50%;background:radial-gradient(circle at 40% 30%,#c98a4c,#9a6232);box-shadow:inset 0 -7px 0 rgba(0,0,0,.16);align-self:flex-end}
+.blob.bad{background:radial-gradient(circle at 40% 30%,#6f7b3f,#3f4a26)}
+.lab{position:absolute;left:0;width:100%;text-align:center;font:700 14px Philosopher,serif;color:var(--parch);opacity:.75;pointer-events:none}
+#tray{position:absolute;left:55px;top:238px;width:290px;height:120px;border-radius:12px;background:linear-gradient(#a4a8b0,#5d6168);border:3px solid #3b3e44;box-shadow:inset 0 0 0 5px rgba(255,255,255,.12),0 8px 10px rgba(0,0,0,.5);cursor:grab}
+.cks{position:absolute;inset:14px 10px 8px;display:grid;grid-template-columns:repeat(3,1fr);gap:8px 10px;pointer-events:none;align-content:center;font-size:40px}
+.cks i{display:block;position:relative;width:1em;height:.84em;margin:auto;background:var(--c);border-radius:50% 50% 46% 46%/58% 58% 42% 42%;box-shadow:inset 0 -.1em 0 rgba(0,0,0,.2),0 2px 3px rgba(0,0,0,.45)}
+.cks i::before,.cks i::after{content:'';position:absolute;top:-.17em;width:.34em;height:.3em;background:var(--c);clip-path:polygon(50% 0,0 100%,100% 100%)}
+.cks i::before{left:.04em;transform:rotate(-14deg)}
+.cks i::after{right:.04em;transform:rotate(14deg)}
+.cks i b{position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 30% 56%,var(--f) 7%,transparent 8%),radial-gradient(circle at 70% 56%,var(--f) 7%,transparent 8%),radial-gradient(circle at 50% 74%,#e58a9a 5%,transparent 6%)}
+#oven{left:0;top:0;width:100%;height:100%;border-radius:14px}
+#ovp{background:repeating-linear-gradient(0deg,rgba(0,0,0,.4) 0 2px,transparent 2px 22px),repeating-linear-gradient(90deg,rgba(0,0,0,.28) 0 2px,transparent 2px 46px),linear-gradient(#6a3328,#341612)}
+#chim{position:absolute;left:84px;top:-30px;width:62px;height:34px;background:linear-gradient(90deg,#1a1a1f,#3a3a42,#1a1a1f);border:2px solid var(--gold);border-bottom:0;border-radius:6px 6px 0 0}
+#ovwin{position:absolute;left:28px;top:44px;width:174px;height:150px;border-radius:72px 72px 12px 12px;background:#0d0d10;border:7px solid #3a3a42;box-shadow:inset 0 0 18px #000,0 0 0 2px var(--gold);cursor:pointer;overflow:hidden;transition:box-shadow .6s,background .6s}
+#ovwin.lit{background:radial-gradient(circle at 50% 100%,#9a4410,#2a0f06 75%);box-shadow:inset 0 0 36px #ff7a1c99,0 0 0 2px var(--gold),0 0 24px #ff7a1c66}
+#ovwin .cks{inset:40px 8px 6px;font-size:34px;gap:4px 4px}
+#smoke{position:absolute;left:0;top:4px;width:100%;text-align:center;font-size:28px;opacity:.7}
+#firebox{position:absolute;left:28px;top:218px;width:174px;height:110px;border-radius:10px;background:#15151a;border:7px solid #3a3a42;box-shadow:0 0 0 2px var(--gold);display:flex;align-items:center;justify-content:center;font-size:44px;transition:background .6s}
+#firebox.lit{background:radial-gradient(circle,#c25a1a,#1b0a05 80%)}
+#firebox .f{animation:flick .5s infinite alternate;margin-left:-6px}
+#firebox svg{width:60px;height:60px}
+@keyframes flick{to{transform:scale(1.18) rotate(4deg)}}
+.rv{position:absolute;width:8px;height:8px;border-radius:50%;background:#888;border:1px solid #111}
+#msg{left:0;top:535px;width:920px;height:52px;display:flex;align-items:center;justify-content:center;padding:0 40px;background:linear-gradient(#f2e4bc,#d9c48f);border:2px solid #8e7848;border-radius:8px;color:var(--ink);font:700 19px/1.15 'Cormorant Garamond',Georgia,serif;text-align:center;box-shadow:inset 0 0 20px rgba(120,80,30,.35),0 4px 12px rgba(0,0,0,.4)}
+#msg::before{content:'✦';position:absolute;left:16px;color:var(--red);inset:auto auto auto 16px;border:0}
+#msg::after{content:'✦';position:absolute;right:16px;color:var(--red)}
+#msg.f span{animation:fi .5s}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}}
+.btn{margin-left:auto;padding:8px 14px;background:linear-gradient(#9a2a33,#6a1a21);color:var(--parch);border:2px solid var(--gold);border-radius:8px;font:700 15px Philosopher,serif;cursor:pointer;touch-action:auto}
+.btn:hover{filter:brightness(1.2)}
+#win{position:absolute;left:230px;top:150px;width:460px;padding:26px;text-align:center;display:none;z-index:50;font-size:20px;background:linear-gradient(160deg,#3a1218,#14162c);border:3px solid var(--gold);border-radius:16px;box-shadow:0 0 60px #d4af6aaa;color:var(--parch)}
+#win b{display:block;font:700 30px Philosopher,serif;color:var(--gold);margin-bottom:8px}
+#win .cks{position:static;font-size:46px;display:flex;justify-content:center;gap:18px;margin:6px 0 10px;inset:auto}
+#win .btn{margin:14px auto 0;display:inline-block}
+.ghost{position:fixed;z-index:99;width:52px;height:52px;font-size:44px;line-height:52px;text-align:center;pointer-events:none;transform:translate(-50%,-60%);filter:drop-shadow(0 6px 6px #0008)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="title" class="abs">Кухня Хогвартса · 1925
+    <span class="candle" style="left:-40px">🕯️</span><span class="candle" style="left:-90px;animation-delay:-1s">🕯️</span>
+    <span class="candle" style="right:-40px;animation-delay:-2s">🕯️</span><span class="candle" style="right:-90px;animation-delay:-.5s">🕯️</span>
+  </div>
+
+  <div class="panel" style="left:0;top:56px;width:250px;height:406px"><h3>Кладовая</h3><div id="shelf"></div></div>
+
+  <div class="panel" id="table" style="left:262px;top:56px;width:400px;height:406px">
+    <div id="bowl" data-id="bowl" data-drop="bowl"><div class="body"></div><div class="rim"></div><div id="bowlc"></div></div>
+    <div class="lab" style="top:206px">Кухонный стол</div>
+    <div id="tray" data-id="tray" data-drop="tray"><div class="cks" id="trayc"></div></div>
+  </div>
+
+  <div class="panel" id="ovp" style="left:674px;top:56px;width:246px;height:406px">
+    <div id="chim"></div>
+    <div id="oven" data-drop="oven" class="abs"></div>
+    <div id="ovwin"><div id="ovc"></div></div>
+    <div id="firebox"></div>
+    <div class="lab" style="top:346px;font-size:16px">Чугунная печь</div>
+    <i class="rv" style="left:12px;top:12px"></i><i class="rv" style="right:12px;top:12px"></i><i class="rv" style="left:12px;bottom:12px"></i><i class="rv" style="right:12px;bottom:12px"></i>
+  </div>
+
+  <div class="panel" style="left:0;top:471px;width:920px;height:56px"><div id="tools"></div></div>
+  <div class="panel" id="msg"><span></span></div>
+  <div id="win"><b>✨ Имбирные котики готовы! ✨</b><div class="cks" id="winc"></div>Хрустящие, пряные, с глазками из глазури.<br>Домовики уже бегут за молоком.<br><button class="btn" id="again">Испечь ещё</button></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const S=(b)=>`<svg viewBox="0 0 48 48" fill="none" stroke-linejoin="round" stroke-linecap="round">${b}</svg>`;
+const SVG={
+ butter:S('<path d="M6 20l22-8 14 6-22 8z" fill="#fff0a0" stroke="#8a6414" stroke-width="2"/><path d="M6 20l14 6v16L6 36z" fill="#f2c94a" stroke="#8a6414" stroke-width="2"/><path d="M20 26l22-8v16l-22 8z" fill="#e0ad2c" stroke="#8a6414" stroke-width="2"/><path d="M26 16l6 2" stroke="#fff" stroke-width="2" opacity=".7"/>'),
+ wand:S('<path d="M9 40L33 16" stroke="#2c1a0e" stroke-width="6"/><path d="M9 40L19 30" stroke="#a8743a" stroke-width="7"/><path d="M12 37l6-6" stroke="#5a3a1f" stroke-width="2"/><path d="M33 16L37 12" stroke="#6b4222" stroke-width="3.5"/><path d="M40 3l2 5 5 .5-4 3.5 1.5 5-4.5-3-4.5 3 1.5-5-4-3.5 5-.5z" fill="#ffe27a" stroke="#c9981a"/><circle cx="29" cy="9" r="1.5" fill="#ffe27a"/><circle cx="46" cy="22" r="1.5" fill="#ffe27a"/>'),
+ wood:S('<rect x="4" y="25" width="34" height="14" rx="6" fill="#7a4a24" stroke="#2c1a0e" stroke-width="2"/><ellipse cx="38" cy="32" rx="5" ry="7" fill="#e0b078" stroke="#2c1a0e" stroke-width="2"/><ellipse cx="38" cy="32" rx="2" ry="3.5" stroke="#8a5a2e"/><path d="M10 30h14M12 35h10" stroke="#4a2c14"/><rect x="10" y="9" width="34" height="14" rx="6" fill="#945c2e" stroke="#2c1a0e" stroke-width="2"/><ellipse cx="10" cy="16" rx="5" ry="7" fill="#e0b078" stroke="#2c1a0e" stroke-width="2"/><ellipse cx="10" cy="16" rx="2" ry="3.5" stroke="#8a5a2e"/><path d="M20 14h16M24 19h14" stroke="#5a3418"/>'),
+ ginger:S('<path d="M7 31c-2-6 3-9 7-9 0-5 5-8 9-5 3-5 10-3 10 3 5-1 9 3 6 8 3 3 1 8-5 8H14c-5 0-8-2-7-5z" fill="#dcb062" stroke="#8a5f22" stroke-width="2"/><path d="M14 26h8M26 22h8M18 34h14M34 30h5" stroke="#a87a34" stroke-width="2"/>'),
+ cinnamon:S('<rect x="5" y="14" width="36" height="10" rx="5" fill="#b4693a" stroke="#6a3a1a" stroke-width="2"/><ellipse cx="40" cy="19" rx="3" ry="5" fill="#7a4220" stroke="#6a3a1a" stroke-width="1.5"/><rect x="8" y="27" width="36" height="10" rx="5" fill="#a65c30" stroke="#6a3a1a" stroke-width="2"/><ellipse cx="8" cy="32" rx="3" ry="5" fill="#7a4220" stroke="#6a3a1a" stroke-width="1.5"/>'),
+ mandrake:S('<path d="M24 14c-4-6-10-6-12-2 4 0 8 2 12 2zM24 14c4-7 11-7 13-3-4 1-9 2-13 3z" fill="#4c9a3c" stroke="#2a5a22" stroke-width="1.5"/><ellipse cx="24" cy="26" rx="10" ry="12" fill="#e2d2a8" stroke="#8a7440" stroke-width="2"/><path d="M18 36l-6 8M30 36l6 8M22 38l-2 7M26 38l2 7" stroke="#c7b27a" stroke-width="3"/><path d="M18 24q2-2 4 0M26 24q2-2 4 0" stroke="#3a2a14" stroke-width="2"/><ellipse cx="24" cy="31" rx="3.5" ry="4.5" fill="#4a1c1c"/>'),
+ leech:S('<path d="M5 30C12 14 20 42 28 28S40 18 44 24" stroke="#2a1a1c" stroke-width="9"/><path d="M5 30C12 14 20 42 28 28S40 18 44 24" stroke="#6a3a3a" stroke-width="3" opacity=".6"/><circle cx="42" cy="22" r="1.6" fill="#ffd0d0"/>'),
+ flame:S('<path d="M24 3c3 8 12 12 12 24a12 12 0 0 1-24 0c0-6 3-8 5-12 1 3 2 4 4 4-1-6 0-10 3-16z" fill="#ff7a1c" stroke="#b83a0a" stroke-width="2"/><path d="M24 22c2 5 6 6 6 12a6 6 0 0 1-12 0c0-3 2-4 3-7z" fill="#ffd23a"/>')
+};
+const ING={flour:['🌾','Мука'],sugar:['🍬','Сахар'],butter:[SVG.butter,'Масло'],egg:['🥚','Яйца'],ginger:[SVG.ginger,'Имбирь'],cinnamon:[SVG.cinnamon,'Корица'],milk:['🥛','Молоко'],salt:['🧂','Соль'],honey:['🍯','Мёд'],mandrake:[SVG.mandrake,'Мандрагора'],leech:[SVG.leech,'Пиявки'],ink:['🖋️','Чернила'],pumpkin:['🎃','Тыквенный сок'],beer:['🍺','Сливочное пиво'],feather:['🪶','Перо феникса']};
+const TOOL={spoon:['🥄','Ложка'],wand:[SVG.wand,'Палочка'],wood:[SVG.wood,'Дрова'],broom:['🧹','Метла']};
+const ICON={bowl:'🥣',tray:'🍽️'};
+for(const o of [ING,TOOL])for(const k in o)ICON[k]=o[k][0];
+const GOOD=['flour','sugar','butter','egg','ginger','cinnamon'];
+const ADD={flour:'Мука взметнулась белым облачком.',sugar:'Сахар тихо зашуршал по стенкам.',butter:'Масло мягко шлёпнулось на дно.',egg:'Хрусть — и яйцо в миске.',ginger:'Острый запах имбиря защекотал нос.',cinnamon:'Корица запахла Рождеством.',milk:'Молоко побелило дно миски.',salt:'Соль растворилась без следа.',honey:'Мёд тянется золотой нитью.',mandrake:'Мандрагора заверещала на всю кухню!',leech:'Пиявки плюхнулись и расползлись по стенкам.',ink:'Чёрная струйка расползлась по миске.',pumpkin:'Оранжевый сок зашипел и запах осенью.',beer:'Пена поднялась до самых краёв.',feather:'Перо вспыхнуло и осыпалось искрами.'};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+let bowl,tray,oven;
+function reset(full=true){
+  bowl={items:[],stirred:false,kind:null};
+  tray={kind:null,inOven:false,t:0};
+  if(full)oven={wood:false,fire:false};
+  $('#win').style.display='none';render();
+}
+function say(t){const m=$('#msg');m.classList.remove('f');void m.offsetWidth;m.querySelector('span').textContent=t;m.classList.add('f')}
+const cat=(c,f='#3a2210')=>`<i style="--c:${c};--f:${f}"><b></b></i>`;
+function cks(){
+  const c={dough:`hsl(30 50% ${Math.max(tray.t<=12?62-tray.t*2.4:33-(tray.t-12)*9,6)}%)`,bad:'#4d5a30',burnt:'#1a110b',cookie:'#a9622b'}[tray.kind];
+  return c?Array(6).fill(cat(c,tray.kind==='cookie'?'#fff4d6':'#3a2210')).join(''):'';
+}
+function render(){
+  const b=$('#bowlc');
+  b.innerHTML=(bowl.stirred&&bowl.kind)?`<div class="blob ${bowl.kind}"></div>`:bowl.items.map(i=>`<span>${ING[i][0]}</span>`).join('');
+  $('#trayc').innerHTML=tray.inOven?'':cks();
+  $('#ovc').innerHTML=tray.inOven?`<div class="cks">${cks()}</div>`+(tray.t>14&&oven.fire?'<div id="smoke">💨</div>':''):'';
+  $('#ovwin').classList.toggle('lit',oven.fire);
+  const f=$('#firebox');f.classList.toggle('lit',oven.fire);
+  f.innerHTML=(oven.wood?`<span>${SVG.wood}</span>`:'')+(oven.fire?`<span class="f">${SVG.flame}</span>`:'');
+  if(tray.kind==='cookie'){$('#winc').innerHTML=Array(3).fill(cat('#a9622b','#fff4d6')).join('');$('#win').style.display='block'}
+}
+function act(id,t){
+  if(!t||id===t)return;
+  if(ING[id]){
+    if(t==='bowl'){
+      if(bowl.items.includes(id))return say('Этого в миске уже хватает.');
+      bowl.items.push(id);bowl.stirred=false;bowl.kind=null;render();
+      if(id==='mandrake'){const s=$('#stage');s.classList.add('scr');setTimeout(()=>s.classList.remove('scr'),500)}
+      return say(ADD[id]);
+    }
+    return say(pick(['Прямо так? Нет, пожалуй.','Ингредиент просится в другое место.']));
+  }
+  if(id==='spoon'&&t==='bowl'){
+    if(!bowl.items.length)return say('Ложка стучит по пустому дну.');
+    const el=$('#bowl');el.classList.add('stir');setTimeout(()=>el.classList.remove('stir'),700);
+    const ok=GOOD.every(i=>bowl.items.includes(i)),bad=bowl.items.some(i=>!GOOD.includes(i));
+    bowl.stirred=true;
+    if(bad){bowl.kind='bad';say('Получилась сомнительная бурда. Пахнет… странно.')}
+    else if(ok){bowl.kind='dough';say('Тесто стало гладким, тугим и очень пряным.')}
+    else{bowl.kind=null;bowl.stirred=false;say('Всё перемешано, но в комок не собирается.')}
+    return render();
+  }
+  if(id==='bowl'&&t==='tray'){
+    if(!bowl.items.length)return say('Пустая миска — пустой противень.');
+    if(tray.kind)return say('На противне уже что-то лежит.');
+    tray.kind=(bowl.stirred&&bowl.kind)||'bad';tray.t=0;
+    say(tray.kind==='dough'?'Тесто легло на противень ушастыми комочками.':'На противень шлёпнулось что-то непонятное.');
+    bowl={items:[],stirred:false,kind:null};return render();
+  }
+  if(id==='wood'&&t==='oven'){
+    if(oven.wood)return say('Дров там и так достаточно.');
+    oven.wood=true;render();return say('Поленья легли в топку. Холодные и тёмные.');
+  }
+  if(id==='wand'&&t==='oven'){
+    if(oven.fire)return say('Огонь и так горит.');
+    if(!oven.wood)return say('Искры погасли — гореть нечему.');
+    oven.fire=true;render();return say('Инсендио! В печи загудело пламя.');
+  }
+  if(id==='wand'&&(t==='bowl'||t==='tray'))return say('Палочка пустила искры, но ничего не изменилось.');
+  if(id==='broom')return say(t==='oven'?'Из печи вылетело облако золы.':'Метла подняла пыль. Чище не стало.');
+  if(id==='tray'&&t==='oven'){
+    if(!tray.kind)return say('Пустой противень в печь? Зачем?');
+    if(tray.inOven)return;
+    tray.inOven=true;render();
+    return say(oven.fire?'Дверца закрылась. Изнутри тянет жаром.':'Противень в печи. Там холодно и тихо.');
+  }
+  if(t==='oven')return say('Печь такое не принимает.');
+  say(pick(['Не похоже, что это поможет.','Ничего не произошло.','Мерлин, зачем это?']));
+}
+function takeOut(){
+  if(!tray.inOven)return say(oven.fire?'Жар обжигает лицо. Внутри пусто.':'Внутри пусто и холодно.');
+  tray.inOven=false;
+  if(tray.kind==='bad')say('Пахнуло гарью. Это точно не печенье.');
+  else if(tray.kind==='dough'){
+    if(tray.t<9)say(tray.t<1?'Тесто такое же, как было.':'Тесто ещё сырое и липкое.');
+    else if(tray.t<=14){tray.kind='cookie';say('Золотисто-коричневые, с хрустящим краем!')}
+    else{tray.kind='burnt';say('Чёрные угольки. Дымом пропахла вся кухня.')}
+  }
+  render();
+}
+$('#shelf').innerHTML=Object.entries(ING).map(([k,v])=>`<div class="it" data-id="${k}"><span class="e">${v[0]}</span><small>${v[1]}</small></div>`).join('');
+$('#tools').innerHTML=Object.entries(TOOL).map(([k,v])=>`<div class="it tl" data-id="${k}"><span class="e">${v[0]}</span><small>${v[1]}</small></div>`).join('')+'<button class="btn" id="redo">Начать заново</button>';
+for(let i=0;i<16;i++){const s=document.createElement('span');s.className='sp';s.textContent='✦';s.style.left=Math.random()*900+'px';s.style.top=Math.random()*560+'px';s.style.animationDelay=(-Math.random()*4)+'s';$('#stage').appendChild(s)}
+let drag=null;
+function mv(e){if(!drag)return;drag.g.style.left=e.clientX+'px';drag.g.style.top=e.clientY+'px'}
+document.addEventListener('pointerdown',e=>{
+  const it=e.target.closest('[data-id]');if(!it)return;
+  const g=document.createElement('div');g.className='ghost';g.innerHTML=ICON[it.dataset.id];document.body.appendChild(g);
+  drag={id:it.dataset.id,g};mv(e);e.preventDefault();
+});
+addEventListener('pointermove',mv);
+addEventListener('pointerup',e=>{
+  if(!drag)return;drag.g.remove();
+  const t=document.elementsFromPoint(e.clientX,e.clientY).find(x=>x.dataset&&x.dataset.drop);
+  const id=drag.id;drag=null;act(id,t&&t.dataset.drop);
+});
+addEventListener('pointercancel',()=>{if(drag){drag.g.remove();drag=null}});
+$('#ovwin').addEventListener('click',takeOut);
+$('#redo').addEventListener('click',()=>{reset(true);say('Стол чист. Всё можно начать с начала.')});
+$('#again').addEventListener('click',()=>{reset(false);say('Новая партия. Печь ещё тёплая.')});
+setInterval(()=>{
+  if(tray.inOven&&oven.fire&&(tray.kind==='dough'||tray.kind==='bad')){tray.t+=0.2;render()}
+},200);
+function fit(){const s=Math.min(innerWidth/920,innerHeight/590);$('#stage').style.transform=`translate(-50%,-50%) scale(${s})`}
+addEventListener('resize',fit);fit();
+reset(true);
+say('Лампы тихо потрескивают. Всё нужное — на полках. Или не всё нужное.');
+</script>
+</body>
+</html>
